@@ -1,0 +1,8 @@
+fastapi
+pydantic
+httpx
+requests
+sqlite-utils
+uvicorn[standard]
+opencv-python-headless
+numpy

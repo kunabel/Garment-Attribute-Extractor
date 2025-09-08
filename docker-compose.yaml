@@ -1,0 +1,46 @@
+services:
+  # Base image for simplicity
+  base:
+    image: attr-extractor-service-base:latest
+    build:
+      context: .
+      dockerfile: base/Dockerfile
+
+  vision-service:
+    build:
+      context: ./vision_service
+      dockerfile: Dockerfile
+    depends_on:
+      - base
+    ports:
+      - "8001:8000"
+
+  heuristic-service:
+    build:
+      context: ./heuristic_service
+      dockerfile: Dockerfile
+    depends_on:
+      - base
+    ports:
+      - "8002:8000"
+
+  llm-service:
+    build:
+      context: ./llm_service
+      dockerfile: Dockerfile
+    depends_on:
+      - base
+    ports:
+      - "8003:8000"
+
+  orchestrator:
+    build:
+      context: ./orchestrator
+      dockerfile: Dockerfile
+    depends_on:
+      - base
+      - vision-service
+      - heuristic-service
+      - llm-service
+    ports:
+      - "8000:8000"
