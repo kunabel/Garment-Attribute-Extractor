@@ -4,5 +4,6 @@ httpx
 requests
 sqlite-utils
 uvicorn[standard]
+gunicorn
 opencv-python-headless
-numpy
+numpy==1.26.4
