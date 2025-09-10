@@ -32,8 +32,8 @@ Shared utilities live in **`common/utils`**. Each service has its own `Dockerfil
 │   ├── db.py
 │   └── requirements.txt
 ├── vision-service/      # Vision (CLIP) classifier
-├── heuristic-service/   # Heuristic + OCR
-├── llm-service/         # Optional LLM enrichment
+├── heuristic-service/   # OCR with fuzzy logic for brand detection
+├── llm-service/         # LLM description of the garment
 ├── docker-compose.yaml  # Multi-service orchestration
 ├── AI_USAGE.md          # Document describing AI usage for the project
 └── ARCHITECTURE.md      # Architecture diagram & flow description
@@ -81,10 +81,10 @@ Invoke-WebRequest -Uri "http://localhost:8000/ping"
 curl -X POST http://localhost:8000/v1/items/analyze \
      -H "Content-Type: application/json" \
      -d '{"image_urls": [
-          "https://picsum.photos/seed/a/320/320",
-          "https://picsum.photos/seed/b/320/320",
-          "https://picsum.photos/seed/c/320/320",
-          "https://picsum.photos/seed/d/320/320"
+          "https://AronRedivivum.github.io/Home-Assignment/Images/2025_08_2009_01_320011.JPG",
+          "https://AronRedivivum.github.io/Home-Assignment/Images/2025_08_2009_01_490012.JPG",
+          "https://AronRedivivum.github.io/Home-Assignment/Images/2025_08_2009_02_020040.JPG",
+          "https://AronRedivivum.github.io/Home-Assignment/Images/2025_08_2009_02_150041.JPG"
      ]}'
 ```
 ```powershell
@@ -94,7 +94,7 @@ Invoke-RestMethod -Uri "http://localhost:8000/v1/items/analyze" `
 >>   -Body '{"image_urls":["https://AronRedivivum.github.io/Home-Assignment/Images/2025_08_2009_01_320011.JPG", "https://AronRedivivum.github.io/Home-Assignment/Images/2025_08_2009_01_490012.JPG", "https://AronRedivivum.github.io/Home-Assignment/Images/2025_08_2009_02_020040.JPG", "https://AronRedivivum.github.io/Home-Assignment/Images/2025_08_2009_02_150041.JPG"]}' `
 >>   -OutFile "C:\response.json"
 ```
-This saves the response in C:\ root as well as a json.
+Note: This saves the response in C:\ root as well as a json.
 
 ---
 
