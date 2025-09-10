@@ -1,0 +1,3 @@
+I used ChatGPT-5 for this project heavily. Most of the code is generated and curated. I checked the code thoroughly and corrected it on multiple occasions.
+I frequently tested the merged code which resulted in solutions, like the front-loading of the model and extended timeout period for the services during longer inference (300sec may be a bit too much).
+Creating a base image to contain common dependencies was also a novel idea with a solution executed with the use of ChatGPT - to mention a few.
