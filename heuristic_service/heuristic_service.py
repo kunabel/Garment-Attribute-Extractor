@@ -18,6 +18,11 @@ def startup_event():
     init_ocr(lang="en")
 
 
+@app.get("/ping")
+def ping():
+    return {"status": "ok"}
+
+
 @app.post("/extract")
 async def extract(req: RequestModel):
     # Simulated output with only one brand option

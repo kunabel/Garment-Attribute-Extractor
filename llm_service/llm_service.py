@@ -7,14 +7,18 @@ app = FastAPI()
 class RequestModel(BaseModel):
     image_urls: list[str]
 
+
+@app.get("/ping")
+def ping():
+    return {"status": "ok"}
+
+
 @app.post("/generate")
 async def generate(req: RequestModel):
     desc = "A stylish second-hand item, versatile and in good condition."
     return {
-        "attributes": {"description": desc, "style": "casual", "fit": "regular"},
+        "attributes": {"description": desc},
         "model_info": {
-            "description": "llm_model (simulated)",
-            "style": "llm_model (simulated)",
-            "fit": "llm_model (simulated)"
+            "description": "llm_model (simulated)"
         }
     }

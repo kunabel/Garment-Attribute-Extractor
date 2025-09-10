@@ -12,15 +12,21 @@ app = FastAPI()
 model = None
 processor = None
 
+
 class RequestModel(BaseModel):
     image_urls: list[str]
 
 
-# Pre-loading model on application start to make post event quicker
+# Front loading model on application start to make post event quicker
 @app.on_event("startup")
 def startup_event():
     global model, processor
     model, processor = load_model(MODEL_NAME, DEVICE)
+
+
+@app.get("/ping")
+def ping():
+    return {"status": "ok"}
 
 
 @app.post("/classify")

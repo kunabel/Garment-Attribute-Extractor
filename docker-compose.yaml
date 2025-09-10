@@ -14,6 +14,10 @@ services:
       - base
     ports:
       - "8001:8000"
+    volumes:
+      - ./data/vision-service:/app/data
+    environment:
+      - DB_FILE=/app/data/requests.db
 
   heuristic-service:
     build:
@@ -23,6 +27,10 @@ services:
       - base
     ports:
       - "8002:8000"
+    volumes:
+      - ./data/heuristic-service:/app/data
+    environment:
+      - DB_FILE=/app/data/requests.db
 
   llm-service:
     build:
@@ -32,6 +40,10 @@ services:
       - base
     ports:
       - "8003:8000"
+    volumes:
+      - ./data/llm-service:/app/data
+    environment:
+      - DB_FILE=/app/data/requests.db
 
   orchestrator:
     build:
@@ -44,3 +56,7 @@ services:
       - llm-service
     ports:
       - "8000:8000"
+    volumes:
+      - ./data/orchestrator:/app/data
+    environment:
+      - DB_FILE=/app/data/requests.db

@@ -6,12 +6,20 @@ from db import init_db, log_request
 
 app = FastAPI()
 
+
 class RequestModel(BaseModel):
     image_urls: list[str]
+
 
 @app.on_event("startup")
 def startup_event():
     init_db()  # Ensure DB is ready
+
+
+@app.get("/ping")
+def ping():
+    return {"status": "ok"}
+
 
 @app.post("/v1/items/analyze")
 async def analyze_item(req: RequestModel):
