@@ -141,12 +141,12 @@ Note: This saves the response in C:\ root as well as a json.
     - DB_FILE=/app/data/requests.db
   ```
 
-  ### Spent time:
-  ### Task A):
-  ~10 hours. Trade-off on the 8-hour hard cap: There would have been no CLIP model implemented and most of the attributes would be simulated. 
-  The body of the project would be still ready. I preferred a more full solution where I can experiment with available Vision models more.
-  Experimenting with CLIP for vision and OCR for the heuristic model exposed shortcomings such as time-outs that would have been overlooked and would have decreased
-  complexity and robustness of the submitted project.
+## Spent time:
+### Task A):
+~10 hours. Trade-off on the 8-hour hard cap: There would have been no CLIP model implemented and most of the attributes would be simulated.
+The body of the project would be still ready. I preferred a more full solution where I can experiment with available Vision models more.
+Experimenting with CLIP for vision and OCR for the heuristic model exposed shortcomings such as time-outs that would have been overlooked and would have decreased
+complexity and robustness of the submitted project.
 
-  ### Task B):
-  ~2hours - with the given answers, I could achieve the time target.
+### Task B):
+~2hours - with the given answers, I could achieve the time target.
